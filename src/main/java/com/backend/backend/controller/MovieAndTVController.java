@@ -73,7 +73,7 @@ public class MovieAndTVController {
                 .orElse(ResponseEntity.badRequest().body((Object) "Invalid movie ID or movie does not exist."));
     }
 
-    @PostMapping("/update/{id}")
+    @PutMapping ("/update/{id}")
     public ResponseEntity<Object> updateMovieAndTV(@PathVariable String id, @RequestBody MovieAndTV updateInfo) {
         return movieAndTVService.updateMovieAndTV(id, updateInfo)
                 .map(updatedMovie -> ResponseEntity.ok((Object) updatedMovie))
